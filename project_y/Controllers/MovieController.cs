@@ -15,5 +15,11 @@ namespace project_y.Controllers
             var movie = new Movie() {name = "Batman"};
             return View(movie);
         }
+
+        [Route("movie/released/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}")]
+        public ActionResult ByReleasedDate(int year, int month)
+        {
+            return Content(year + "/" + month);
+        }
     }
 }
