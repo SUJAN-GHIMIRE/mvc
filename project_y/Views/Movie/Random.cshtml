@@ -1,8 +1,26 @@
-﻿@model project_y.Models.Movie
+﻿@model project_y.ViewModels.RandomMovieViewModel
+
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.name</h2>
+<h2>@Model.Movie.name</h2>
+
+<table>
+    <thead>
+    List of Customer
+    </thead>
+    @{
+        foreach (var customer in Model.Customers)
+        {
+            
+            <tr>
+                <td>@customer.name</td>
+            </tr>
+        }
+       
+            }
+    
+</table>
 
