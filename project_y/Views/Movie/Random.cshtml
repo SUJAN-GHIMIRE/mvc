@@ -5,22 +5,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Movie.name</h2>
 
-<table>
-    <thead>
-    List of Customer
-    </thead>
-    @{
-        foreach (var customer in Model.Customers)
-        {
+@*this is for adding comments in the razor view*@
+
+
+@{
+    var classname = Model.Customers.Count > 0 ? "popular" : null; 
+}
+<h1 class =" @classname">@Model.Movie.name</h1>
+@if (Model.Customers.Count == 0)
+{
+    <h1>no movies to rented by customer</h1>
+}
+else
+{
+    <table>
+        <thead>
+         List of Customer
+        </thead>
+        @{
+            foreach (var customer in Model.Customers)
+            {
             
-            <tr>
-                <td>@customer.name</td>
-            </tr>
-        }
-       
+                <tr>
+                    <td>@customer.name</td>
+                </tr>
             }
+       
+        }
     
-</table>
+    </table>
+
+}
 
